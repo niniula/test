@@ -9,7 +9,7 @@ jobs:
   build01:
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ secrets.AUTH_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.AUTH_TOEKN }}
     steps:
       - uses: actions/checkout@v3
       - name: Run a multi-line script
