@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     
 jobs:
-  build1:
+  build01:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.AUTH_TOKEN }}
